@@ -35,7 +35,7 @@ namespace StoreLibrary
 
         public float Discount
         {
-            get => this.discount;
+            get { return this.discount; }
             set
             {
                 if (value > 1.0f)
