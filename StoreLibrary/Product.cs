@@ -10,26 +10,46 @@ namespace StoreLibrary
     {
         public string Name;
         private int price;
-        public float Discount;
+        private float discount;
 
-        public int GetPrice()
+        public int Price
         {
-            return this.price;
+            get { return this.price; }
+
+            set
+            {
+                if (value > 200)
+                {
+                    this.price = 200;
+                }
+                else if (value < 39)
+                {
+                    this.price = 39;
+                }
+                else
+                {
+                    this.price = value;
+                }
+            }
         }
 
-        public void SetPrice(int price)
+        public float Discount
         {
-            if (price > 200)
+            get => this.discount;
+            set
             {
-                this.price = 200;
-            }
-            else if (price < 39)
-            {
-                this.price = 39;
-            }
-            else
-            {
-                this.price = price;
+                if (value > 1.0f)
+                {
+                    this.discount = 1.0f;
+                }
+                else if (value < 0.3f)
+                {
+                    this.discount = 0.3f;
+                }
+                else
+                {
+                    this.discount = value;
+                }
             }
         }
     }
