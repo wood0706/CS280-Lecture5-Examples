@@ -8,9 +8,31 @@ namespace StoreLibrary
 {
     public class Product
     {
-        public string Name;
+        public string Name { get; set; }
         private int price;
         private float discount;
+
+        public Product(string name, int price, float discount)
+        {
+            this.Price = price;
+            this.Name = name;
+            this.Discount = discount;
+        }
+
+        public Product(int price, string name, float discount)
+            : this(name, price, discount)
+        {
+        }
+
+        public Product(string name, int price)
+            : this(name, price, 1.0f)
+        {
+        }
+
+        public Product()
+            : this("無產品名稱", 0, 1.0f)
+        {
+        }
 
         public int Price
         {
